@@ -33,18 +33,12 @@ public class App {
                 oneliner.add(scanner.nextLine());
             }
 
-            System.out.println("oneliner.toString() = " + oneliner.toString());
-
             Quote[] quoteArray = gson.fromJson(oneliner.toString(), Quote[].class);
-            
-            for (Quote quote : quoteArray) {
-//                System.out.println("quote = " + quote);
-            }
 
             Random rand = new Random();
             int randInt = rand.nextInt(quoteArray.length);
 
-            System.out.println("quoteArray[randInt] = " + quoteArray[randInt]);
+            System.out.println("Here is your quote: \n " + quoteArray[randInt]);
 
         } catch (IOException e) {
             e.printStackTrace();
