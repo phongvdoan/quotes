@@ -15,11 +15,11 @@ public class Quote {
 
     public String toString() {
         String[] tagArr = this.tags;
-        String pasrdTag = "";
+        String parsedTag = "";
         for (int i = 0; i < tagArr.length; i++) {
-            pasrdTag += tagArr[i];
+            parsedTag += tagArr[i];
         }
-        String randomQuote = "Author: "+ this.author + ", Likes: " + this.likes + ", Quote: " + this.text + ", Tags: " + pasrdTag;
+        String randomQuote = "Author: "+ this.author + ", Likes: " + this.likes + ", Quote: " + this.text + ", Tags: " + parsedTag;
 
         return randomQuote;
     }

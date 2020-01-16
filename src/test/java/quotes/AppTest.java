@@ -3,11 +3,35 @@
  */
 package quotes;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
+    @Test public void testGetRandomQuote_continasKey() {
+        String filePath = "src/main/resources/recentquotes.json";
+        String actual = App.getRandomQuote(filePath);
+        System.out.println("actual = " + actual);
+        String author = "Author";
+        String quote = "Quote";
+        String likes = "Likes";
+        String tags = "Tags";
 
+        assertTrue(actual.contains(author));
+        assertTrue(actual.contains(quote));
+        assertTrue(actual.contains(likes));
+        assertTrue(actual.contains(tags));
     }
+
+    @Test public void testGetRandomQuote_Err() {
+        File filePath = new File ("src/main/resources/test.json");
+        assertTrue(filePath.exists());
+    }
+
+
 }

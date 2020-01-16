@@ -15,33 +15,49 @@ import java.util.StringJoiner;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(Quote[] args) {
 
+    }
+//    public static int getRandomInt(String[] arr) {
+//        Random rand = new Random();
+//        int randInt = rand.nextInt(arr.length - 1);
+//    }
+    public static String getRandomQuote(String filePath) {
         try {
-            // Create a new Gson object
-            Gson gson = new Gson();
-            
+
+            File file = new File(filePath);
+            file.exists();
+
+            if (!file.exists()) {
+                throw new IOException();
+            }
 
             // Read the recentquotes.json file
-            Scanner scanner = new Scanner(new File("src/main/resources/recentquotes.json"));
+            Scanner scanner = new Scanner(new File(filePath));
 
 
             StringJoiner oneliner = new StringJoiner(" ");
 
             while (scanner.hasNextLine()) {
-
                 oneliner.add(scanner.nextLine());
             }
+
+            // Create a new Gson object
+            Gson gson = new Gson();
 
             Quote[] quoteArray = gson.fromJson(oneliner.toString(), Quote[].class);
 
             Random rand = new Random();
-            int randInt = rand.nextInt(quoteArray.length);
+            int randInt = rand.nextInt(quoteArray.length - 1);
 
-            System.out.println("Here is your quote: \n " + quoteArray[randInt]);
+//            System.out.println("Here is your quote: \n " + quoteArray[randInt]);
+//            int randInt = getRandomInt(quoteArray);
+
+            return quoteArray[randInt].toString();
 
         } catch (IOException e) {
             e.printStackTrace();
+            return "Error: Your filename is incorrect.";
         }
     }
 }
