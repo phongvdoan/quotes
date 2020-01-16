@@ -6,6 +6,7 @@ package quotes;
 import com.google.gson.Gson;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ import java.util.StringJoiner;
 public class App {
 
     public static void main(String[] args) {
-        getRandomQuote(args[0]);
+        System.out.println(getRandomQuote("src/main/resources/recentquotes.json"));
     }
     public static int getRandomInt(int arrLength) {
         Random rand = new Random();
@@ -24,29 +25,12 @@ public class App {
     public static String getRandomQuote(String filePath) {
         try {
 
-            File file = new File(filePath);
-            file.exists();
+            FileReader file = new FileReader(filePath);
 
-            if (!file.exists()) {
-                throw new IOException();
-            }
-
-            // Read the recentquotes.json file
-            Scanner scanner = new Scanner(new File(filePath));
-
-
-            StringJoiner oneliner = new StringJoiner(" ");
-
-            while (scanner.hasNextLine()) {
-                oneliner.add(scanner.nextLine());
-            }
-
-            // Create a new Gson object
             Gson gson = new Gson();
 
-            Quote[] quoteArray = gson.fromJson(oneliner.toString(), Quote[].class);
+            Quote[] quoteArray = gson.fromJson(file, Quote[].class);
 
-            Random rand = new Random();
 
 //            System.out.println("Here is your quote: \n " + quoteArray[randInt]);
             int randInt = getRandomInt(quoteArray.length);
