@@ -10,3 +10,8 @@ Use the file recentquotes.json to show random popular book quotes. Your program 
 
 Takes the recentquotes.json and swish it down to one line. Pass the line to GSON to parse it to the Quote Class.  Get a random number between 0 and length of array of the quote class. Then use the random number to find the array at that index.
 
+## To Run
+
+Within the directory of quotes.
+
+In terminal, type ` ./gradlew run --args "src/main/resources/recentquotes.json"` or path to the json file
