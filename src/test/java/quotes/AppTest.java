@@ -27,7 +27,7 @@ public class AppTest {
 
     @Test public void testGetRandomQuote_Err() {
         File filePath = new File ("src/main/resources/test.json");
-        assertTrue(filePath.exists());
+        assertFalse(filePath.exists());
     }
 
     @Test public void getRandomInt() {
