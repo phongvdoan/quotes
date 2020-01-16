@@ -3,12 +3,9 @@
  */
 package quotes;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -33,5 +30,10 @@ public class AppTest {
         assertTrue(filePath.exists());
     }
 
-
+    @Test public void getRandomInt() {
+        int actual = App.getRandomInt(100);
+        int min = 1;
+        int max = 100;
+        assertTrue(min <= actual && actual <=max);
+    }
 }
