@@ -5,9 +5,7 @@ package quotes;
 
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
@@ -15,13 +13,14 @@ import java.util.StringJoiner;
 
 public class App {
 
-    public static void main(Quote[] args) {
-
+    public static void main(String[] args) {
+        getRandomQuote(args[0]);
     }
-//    public static int getRandomInt(String[] arr) {
-//        Random rand = new Random();
-//        int randInt = rand.nextInt(arr.length - 1);
-//    }
+    public static int getRandomInt(int arrLength) {
+        Random rand = new Random();
+        int randInt = rand.nextInt(arrLength - 1);
+        return randInt;
+    }
     public static String getRandomQuote(String filePath) {
         try {
 
@@ -48,12 +47,13 @@ public class App {
             Quote[] quoteArray = gson.fromJson(oneliner.toString(), Quote[].class);
 
             Random rand = new Random();
-            int randInt = rand.nextInt(quoteArray.length - 1);
 
 //            System.out.println("Here is your quote: \n " + quoteArray[randInt]);
-//            int randInt = getRandomInt(quoteArray);
+            int randInt = getRandomInt(quoteArray.length);
 
-            return quoteArray[randInt].toString();
+            String randomQ = quoteArray[randInt].toString();
+
+            return randomQ;
 
         } catch (IOException e) {
             e.printStackTrace();

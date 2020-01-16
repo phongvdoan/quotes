@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5770e469-5cd1-4e30-b120-bcff2907bfdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/quotes/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quotes/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/quotes/Quote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/quotes/Quote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/quotes/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/quotes/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +42,26 @@
     <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RunManager" selected="Gradle.AppTest.testGetRandomQuote_continasKey">
+    <configuration name="AppTest.getRandomInt" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;quotes.AppTest.getRandomInt&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="AppTest.testGetRandomQuote" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -109,6 +125,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.AppTest.testGetRandomQuote_continasKey" />
+        <item itemvalue="Gradle.AppTest.getRandomInt" />
         <item itemvalue="Gradle.AppTest.testGetRandomQuote_Err" />
         <item itemvalue="Gradle.AppTest.testGetRandomQuote" />
       </list>
@@ -140,22 +157,22 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1579205055314">
+    <state width="1398" height="271" key="GridCell.Tab.0.bottom" timestamp="1579205608519">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1579205055314" />
-    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1579205055313">
+    <state width="1398" height="271" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1579205608519" />
+    <state width="1398" height="271" key="GridCell.Tab.0.center" timestamp="1579205608518">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1579205055313" />
-    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1579205055311">
+    <state width="1398" height="271" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1579205608518" />
+    <state width="1398" height="271" key="GridCell.Tab.0.left" timestamp="1579205608517">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1579205055311" />
-    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1579205055314">
+    <state width="1398" height="271" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1579205608517" />
+    <state width="1398" height="271" key="GridCell.Tab.0.right" timestamp="1579205608518">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1579205055314" />
+    <state width="1398" height="271" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1579205608518" />
     <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1579204020322">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
