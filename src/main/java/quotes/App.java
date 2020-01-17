@@ -18,7 +18,6 @@ public class App {
 
     public static String displayQuoteBasedOnConnection(String urlString){
         try {
-//            System.out.println(connectToURL(urlString));
             return connectToURL(urlString);
         } catch (IOException e) {
             System.out.println(getRandomQuote("src/main/resources/recentquotes.json"));
@@ -54,11 +53,14 @@ public class App {
     }
 
     public static String connectToURL(String urlString) throws IOException {
+        //https://www.tutorialspoint.com/how-to-read-parse-json-array-using-java
         List<QuoteAPI> quoteList = new ArrayList<>();
         Gson gson = new Gson();
         URL url = new URL(urlString);
         File filePath = new File ("src/main/resources/recentAPIQuotes.json");
         HttpURLConnection numConnection =  (HttpURLConnection) url.openConnection();
+
+        //https://stackoverflow.com/questions/15927079/how-to-use-httpsurlconnection-through-proxy-by-setproperty
         numConnection.setRequestProperty("x-rapidapi-host", "andruxnet-random-famous-quotes.p.rapidapi.com");
         numConnection.setRequestProperty("x-rapidapi-key", "d79e3079c3msh3e8d2f540aea655p1433dfjsn0b281924b6fd");
         numConnection.setRequestMethod("GET");
@@ -81,7 +83,7 @@ public class App {
             System.out.println("File is not Found");
         }
             return quoteArray[0].toString();
-
+//              https://howtodoinjava.com/java/io/java-append-to-file/
 //        else{
 //            System.out.println("else");
 //            FileWriter apiWriter;
