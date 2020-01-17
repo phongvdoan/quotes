@@ -13,14 +13,14 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
-        displayQuoteBasedOnConnection("https://andruxnet-random-famous-quotes.p.rapidapi.com/?cat=famous&count=1");
+        System.out.println(displayQuoteBasedOnConnection("https://andruxnet-random-famous-quotes.p.rapidapi.com/?cat=famous&count=1"));
     }
 
     public static String displayQuoteBasedOnConnection(String urlString){
         try {
             return connectToURL(urlString);
         } catch (IOException e) {
-            System.out.println(getRandomQuote("src/main/resources/recentquotes.json"));
+
             return getRandomQuote("src/main/resources/recentquotes.json");
         }
     }
@@ -71,7 +71,6 @@ public class App {
         QuoteAPI[] quoteArray = gson.fromJson(quoteString.toString(), QuoteAPI[].class);
         QuoteAPI randomSingleQuote = quoteArray[0];
         quoteList.add(randomSingleQuote);
-        System.out.println("quoteList = " + quoteList.toString());
 
         FileWriter apiWriter;
         try{
