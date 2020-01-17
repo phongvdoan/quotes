@@ -67,6 +67,20 @@ public class App {
         String firstLine = input.readLine();
         quoteString.append(firstLine);
         QuoteAPI[] quoteArray = gson.fromJson(quoteString.toString(), QuoteAPI[].class);
+        QuoteAPI randomSingleQuote = quoteArray[0];
+        FileWriter apiWriter;
+        try{
+            apiWriter = new FileWriter("src/main/resources/recentAPIQuotes.json");
+            gson.toJson(randomSingleQuote,apiWriter);
+            apiWriter.close();
+
+        } catch (IOException e){
+            System.out.println("File is not Found");
+        }
         return quoteArray[0].toString();
+    }
+
+    public static void cacheIntoJSONFile(){
+
     }
 }
