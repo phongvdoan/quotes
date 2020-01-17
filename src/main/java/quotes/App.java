@@ -5,9 +5,9 @@ package quotes;
 
 import com.google.gson.Gson;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.StringJoiner;
@@ -15,7 +15,17 @@ import java.util.StringJoiner;
 public class App {
 
     public static void main(String[] args) {
-        System.out.println(getRandomQuote("src/main/resources/recentquotes.json"));
+        displayQuoteBasedOnConnection("https://andruxnet-random-famous-quotes.p.rapidapi.com/?cat=famous&count=1");
+    }
+
+    public static String displayQuoteBasedOnConnection(String urlString){
+        try {
+            System.out.println(connectToURL(urlString));
+            return connectToURL(urlString);
+        } catch (IOException e) {
+            System.out.println(getRandomQuote("src/main/resources/recentquotes.json"));
+            return getRandomQuote("src/main/resources/recentquotes.json");
+        }
     }
     public static int getRandomInt(int arrLength) {
         Random rand = new Random();
@@ -43,5 +53,20 @@ public class App {
             e.printStackTrace();
             return "Error: Your filename is incorrect.";
         }
+    }
+
+    public static String connectToURL(String urlString) throws IOException {
+        Gson gson = new Gson();
+        URL url = new URL(urlString);
+        HttpURLConnection numConnection =  (HttpURLConnection) url.openConnection();
+        numConnection.setRequestProperty("x-rapidapi-host", "andruxnet-random-famous-quotes.p.rapidapi.com");
+        numConnection.setRequestProperty("x-rapidapi-key", "d79e3079c3msh3e8d2f540aea655p1433dfjsn0b281924b6fd");
+        numConnection.setRequestMethod("GET");
+        BufferedReader input = new BufferedReader(new InputStreamReader(numConnection.getInputStream()));
+        StringBuilder quoteString = new StringBuilder();
+        String firstLine = input.readLine();
+        quoteString.append(firstLine);
+        QuoteAPI[] quoteArray = gson.fromJson(quoteString.toString(), QuoteAPI[].class);
+        return quoteArray[0].toString();
     }
 }
