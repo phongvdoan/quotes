@@ -8,9 +8,7 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class App {
 
@@ -20,7 +18,7 @@ public class App {
 
     public static String displayQuoteBasedOnConnection(String urlString){
         try {
-            System.out.println(connectToURL(urlString));
+//            System.out.println(connectToURL(urlString));
             return connectToURL(urlString);
         } catch (IOException e) {
             System.out.println(getRandomQuote("src/main/resources/recentquotes.json"));
@@ -56,8 +54,10 @@ public class App {
     }
 
     public static String connectToURL(String urlString) throws IOException {
+        List<QuoteAPI> quoteList = new ArrayList<>();
         Gson gson = new Gson();
         URL url = new URL(urlString);
+        File filePath = new File ("src/main/resources/recentAPIQuotes.json");
         HttpURLConnection numConnection =  (HttpURLConnection) url.openConnection();
         numConnection.setRequestProperty("x-rapidapi-host", "andruxnet-random-famous-quotes.p.rapidapi.com");
         numConnection.setRequestProperty("x-rapidapi-key", "d79e3079c3msh3e8d2f540aea655p1433dfjsn0b281924b6fd");
@@ -68,17 +68,39 @@ public class App {
         quoteString.append(firstLine);
         QuoteAPI[] quoteArray = gson.fromJson(quoteString.toString(), QuoteAPI[].class);
         QuoteAPI randomSingleQuote = quoteArray[0];
+        quoteList.add(randomSingleQuote);
+        System.out.println("quoteList = " + quoteList.toString());
+
         FileWriter apiWriter;
         try{
             apiWriter = new FileWriter("src/main/resources/recentAPIQuotes.json");
-            gson.toJson(randomSingleQuote,apiWriter);
+            gson.toJson(quoteList,apiWriter);
             apiWriter.close();
 
         } catch (IOException e){
             System.out.println("File is not Found");
         }
-        return quoteArray[0].toString();
+            return quoteArray[0].toString();
+
+//        else{
+//            System.out.println("else");
+//            FileWriter apiWriter;
+//            try{
+//                apiWriter = new FileWriter("src/main/resources/recentAPIQuotes.json");
+//                BufferedWriter apiFile = new BufferedWriter(apiWriter);
+//                apiFile.append('c');
+////                apiFile.write("Example test");
+////                gson.toJson(randomSingleQuote,apiWriter);
+//                apiWriter.close();
+//
+//            } catch (IOException e){
+//                System.out.println("File is not Found");
+//            }
+//            return quoteArray[0].toString();
+//        }
+//
     }
+
 
     public static void cacheIntoJSONFile(){
 
